@@ -72,7 +72,7 @@ type ClusterStatus struct {
 	Healthy   bool         `json:"healthy,omitempty" yaml:"healthy" protobuf:"varint,1,opt,name=healthy"`
 	LastCheck *metav1.Time `json:"lastCheck,omitempty" yaml:"lastCheck" protobuf:"bytes,2,opt,name=lastCheck"`
 	// kubernetes version
-	Version version.Info `json:"version,omitempty" yaml:"version" protobuf:"bytes,3,opt,name=version"`
+	Version *version.Info `json:"version,omitempty" yaml:"version" protobuf:"bytes,3,opt,name=version"`
 }
 
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
