@@ -14,10 +14,17 @@ verify:
 .PHONY: verify
 
 
-
+.PHONY: generate
 generate:
 	hack/update-deepcopy.sh
 	hack/update-protobuf.sh
 	hack/update-swagger-docs.sh
 	hack/update-codegen.sh
-.PHONY: generate
+
+
+CONTROLLER_GEN = $(GOPATH)/bin/controller-gen
+
+.PHONY: manifests
+manifests:
+     controller-gen rbac:roleName=manager-role crd webhook paths="./..." output:crd:artifacts:config=manifests/crd
+

@@ -9,7 +9,7 @@ CODEGEN_PKG=${CODEGEN_PKG:-$(cd ${SCRIPT_ROOT}; ls -d -1 ./vendor/k8s.io/code-ge
 
 verify="${VERIFY:-}"
 
-for group in cluster monitoring; do
+for group in cluster monitor metrics rbac; do
   ${CODEGEN_PKG}/generate-groups.sh "client,lister,informer" \
     github.com/kubeall/client-go/${group} \
     github.com/kubeall/api \

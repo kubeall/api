@@ -11,9 +11,13 @@ set -o pipefail
 
 API_GROUP_VERSIONS="\
 cluster/v1alpha1 \
-monitoring/v1alpha1 \
+monitor/v1alpha1 \
+rbac/v1alpha1 \
+metrics/v1alpha1 \
 "
 API_PACKAGES="\
 github.com/kubeall/api/cluster/v1alpha1,\
-github.com/kubeall/api/monitoring/v1alpha1\
+github.com/kubeall/api/monitor/v1alpha1,\
+github.com/kubeall/api/rbac/v1alpha1,\
+github.com/kubeall/api/metrics/v1alpha1\
 "

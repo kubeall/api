@@ -18,3 +18,4 @@ vendor
 build/
 coverage.txt
 _output
+.DS_Store

@@ -17,7 +17,7 @@ limitations under the License.
 
 syntax = "proto2";
 
-package github.com.kubeall.api.monitoring.v1alpha1;
+package github.com.kubeall.api.monitor.v1alpha1;
 
 import "k8s.io/api/core/v1/generated.proto";
 import "k8s.io/apimachinery/pkg/apis/meta/v1/generated.proto";
@@ -25,7 +25,7 @@ import "k8s.io/apimachinery/pkg/runtime/generated.proto";
 import "k8s.io/apimachinery/pkg/runtime/schema/generated.proto";
 
 // Package-wide variables from generator "generated".
-option go_package = "github.com/kubeall/api/monitoring/v1alpha1";
+option go_package = "github.com/kubeall/api/monitor/v1alpha1";
 
 message MetricValue {
   optional int64 timestamp = 1;

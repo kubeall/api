@@ -55,60 +55,6 @@ func (ClusterStatus) SwaggerDoc() map[string]string {
 	return map_ClusterStatus
 }
 
-var map_KubeUserList = map[string]string{
-	"": "KubeUserList contains a list of KubeUser",
-}
-
-func (KubeUserList) SwaggerDoc() map[string]string {
-	return map_KubeUserList
-}
-
-var map_KubeUserSpec = map[string]string{
-	"userName": "username,",
-	"email":    "user email",
-	"language": "default language",
-	"password": "login password",
-}
-
-func (KubeUserSpec) SwaggerDoc() map[string]string {
-	return map_KubeUserSpec
-}
-
-var map_UserKubeConfig = map[string]string{
-	"": "UserKubeConfig is the Schema for the usermanages API",
-}
-
-func (UserKubeConfig) SwaggerDoc() map[string]string {
-	return map_UserKubeConfig
-}
-
-var map_UserKubeConfigList = map[string]string{
-	"": "UserKubeConfigList contains a list of UserKubeConfig",
-}
-
-func (UserKubeConfigList) SwaggerDoc() map[string]string {
-	return map_UserKubeConfigList
-}
-
-var map_UserKubeConfigSpec = map[string]string{
-	"":                  "UserKubeConfigSpec defines the desired state of UserKubeConfig",
-	"cluster":           "cluster resource name",
-	"expirationSeconds": "expire time",
-	"kubeConfig":        "user kubeconfig content",
-}
-
-func (UserKubeConfigSpec) SwaggerDoc() map[string]string {
-	return map_UserKubeConfigSpec
-}
-
-var map_UserKubeConfigStatus = map[string]string{
-	"": "UserKubeConfigStatus defines the observed state of UserKubeConfig",
-}
-
-func (UserKubeConfigStatus) SwaggerDoc() map[string]string {
-	return map_UserKubeConfigStatus
-}
-
 var map_Workspace = map[string]string{
 	"": "Workspace is the Schema for the namespacegroups API",
 }

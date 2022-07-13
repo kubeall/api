@@ -23,8 +23,20 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 )
 
+// Kind takes an unqualified kind and returns back a Group qualified GroupKind
+func Kind(kind string) schema.GroupKind {
+	return SchemeGroupVersion.WithKind(kind).GroupKind()
+}
+
+// Resource takes an unqualified resource and returns a Group qualified GroupResource
+func Resource(resource string) schema.GroupResource {
+	return SchemeGroupVersion.WithResource(resource).GroupResource()
+}
+
 var (
-	GroupName     = "cluster.kubeall.com"
+	GroupName     = "rbac.kubeall.com"
+	SchemeBuilder = runtime.NewSchemeBuilder(addKnownTypes)
+	AddToScheme   = SchemeBuilder.AddToScheme
 	GroupVersion  = schema.GroupVersion{Group: GroupName, Version: "v1"}
 	schemeBuilder = runtime.NewSchemeBuilder(addKnownTypes, corev1.AddToScheme, extensionsv1beta1.AddToScheme)
 	// Install is a function which adds this version to a scheme
@@ -33,25 +45,20 @@ var (
 	// SchemeGroupVersion generated code relies on this name
 	// Deprecated
 	SchemeGroupVersion = GroupVersion
-	// AddToScheme exists solely to keep the old generators creating valid code
-	// DEPRECATED
-	AddToScheme = schemeBuilder.AddToScheme
 )
 
-// Resource generated code relies on this being here, but it logically belongs to the group
-// DEPRECATED
-func Resource(resource string) schema.GroupResource {
-	return schema.GroupResource{Group: GroupName, Resource: resource}
-}
-
-// Adds the list of known types to api.Scheme.
+// Adds the list of known types to Scheme.
 func addKnownTypes(scheme *runtime.Scheme) error {
-	scheme.AddKnownTypes(GroupVersion,
-		&Cluster{},
-		&ClusterList{},
-		&Workspace{},
-		&WorkspaceList{},
+	scheme.AddKnownTypes(SchemeGroupVersion,
+		&WorkspaceRole{},
+		&WorkspaceRoleList{},
+		&WorkspaceRoleBinding{},
+		&WorkspaceRoleBindingList{},
+		&KubeUser{},
+		&KubeUserList{},
+		&UserKubeConfig{},
+		&UserKubeConfigList{},
 	)
-	metav1.AddToGroupVersion(scheme, GroupVersion)
+	metav1.AddToGroupVersion(scheme, SchemeGroupVersion)
 	return nil
 }

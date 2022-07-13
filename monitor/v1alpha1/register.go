@@ -34,7 +34,7 @@ func Resource(resource string) schema.GroupResource {
 }
 
 var (
-	GroupName     = "cluster.kubeall.com"
+	GroupName     = "monitor.kubeall.com"
 	SchemeBuilder = runtime.NewSchemeBuilder(addKnownTypes)
 	AddToScheme   = SchemeBuilder.AddToScheme
 	GroupVersion  = schema.GroupVersion{Group: GroupName, Version: "v1"}

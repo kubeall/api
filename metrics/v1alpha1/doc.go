@@ -1,4 +1,4 @@
 // +k8s:deepcopy-gen=package
-// +groupName=monitoring.kubeall.com
+// +groupName=metrics.kubeall.com
 
 package v1alpha1
